@@ -18,11 +18,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
 public class CryptoHistoryRepositoryTest {
-    @MockBean
-    private DateUtil dateUtil;
+    private final DateUtil dateUtil = new DateUtil();
 
-    @Autowired
-    private DateUtil dateUtil;
+    @MockBean
+    private DateUtil util;
 
     @Autowired
     private CryptoHistoryRepository cryptoHistoryRepository;
