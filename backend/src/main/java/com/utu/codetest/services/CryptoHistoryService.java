@@ -58,7 +58,7 @@ public class CryptoHistoryService {
                     .findFirst();
             daySummary.ifPresent(cryptoHistoryEntity -> currencySummaryDto.setDay(
                     getPercentage(latestData.getClose(), cryptoHistoryEntity.getClose())));
-            weekSummary.ifPresent(cryptoHistoryEntity -> currencySummaryDto.setDay(
+            weekSummary.ifPresent(cryptoHistoryEntity -> currencySummaryDto.setWeek(
                     getPercentage(latestData.getClose(), cryptoHistoryEntity.getClose())));
         }
         return currencySummaryDto;

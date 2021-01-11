@@ -4,10 +4,10 @@ import com.utu.codetest.dtos.CurrencySummaryDto;
 import com.utu.codetest.entities.CryptoHistoryEntity;
 import com.utu.codetest.repositories.CryptoHistoryRepository;
 import com.utu.codetest.utils.DateUtil;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -21,9 +21,10 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CryptoHistoryServiceTest {
     private final DateUtil dateUtil = new DateUtil();
 
-    @Mock
+    @MockBean
     private CryptoHistoryRepository repository;
 
+    @Autowired
     private  CryptoHistoryService service;
 
     private final CryptoHistoryEntity mock1 = CryptoHistoryEntity.builder()
@@ -47,11 +48,6 @@ public class CryptoHistoryServiceTest {
             .volume(new BigDecimal(46048778))
             .marketCap(new BigDecimal(904588509))
             .build();
-
-    @BeforeEach
-    void setup() {
-        service = new CryptoHistoryService(dateUtil, repository);
-    }
 
     @Test
     public void getAllSummaries() {
