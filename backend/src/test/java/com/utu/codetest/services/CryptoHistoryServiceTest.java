@@ -50,7 +50,7 @@ public class CryptoHistoryServiceTest {
 
     @BeforeEach
     void setup() {
-        service = new CryptoHistoryService(repository, dateUtil);
+        service = new CryptoHistoryService(dateUtil, repository);
     }
 
     @Test
@@ -67,7 +67,7 @@ public class CryptoHistoryServiceTest {
     public void findHistoryByCurrency() {
         when(repository.findAll()).thenReturn(List.of(mock1, mock2));
         Map<String, List<CryptoHistoryEntity>> map = service.findHistoryByCurrency();
-        assertEquals(1, list.size());
+        assertEquals(1, map.size());
     }
 
     @Test
