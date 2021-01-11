@@ -1,5 +1,6 @@
 package com.utu.codetest.entities;
 
+import com.utu.codetest.converter.CSVDateConverter;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,6 +28,7 @@ public class CryptoHistoryEntity {
     private String currency;
 
     @Column(name = "date")
+    @Convert(converter = CSVDateConverter.class)
     private Date date;
 
     @Column(name = "open")
