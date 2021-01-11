@@ -47,6 +47,6 @@ public class CryptoHistoryEntity {
     private BigDecimal volume;
 
     @Column(name = "market_cap")
-    private BigDecimal markerCap;
+    private BigDecimal marketCap;
 
 }
