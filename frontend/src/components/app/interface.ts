@@ -1,4 +1,4 @@
-export interface Summary {
+export interface SummaryDto {
   currency: string;
   price: number;
   day: number;
@@ -7,7 +7,7 @@ export interface Summary {
   marketCap: number;
 }
 
-export interface Label {
+export interface LabelDto {
   id: string;
   large: string;
   market_cap_rank: number;
